@@ -1,0 +1,54 @@
+body {
+        background: #E7E7E7;
+        min-height: 100vh;
+        font-weight: 200;
+        font-size: 14px;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        overflow-x: hidden;
+}
+
+.green {
+        color: #273909;
+}
+
+.grey {
+        color: #E7E7E7;
+}
+
+.header-logo {
+        width: 70px;
+        height: 70px;
+        object-fit: contain;
+}
+
+.header-clipped {
+        background: #273909;
+        color: #fff;
+        padding-top: 40px;
+        padding-bottom: 6vh;
+        /* hauteur clip-path */
+        -webkit-clip-path: url(#header-clip);
+        clip-path: url(#header-clip);
+        position: relative;
+        z-index: 999;
+}
+
+.text1 {
+        font-size: 12px;
+}
+
+a {
+        text-decoration: none;
+        color: inherit;
+}
+
+.navbar-toggler:focus,
+.navbar-toggler:active,
+.navbar-toggler:focus-visible,
+body > div.header > nav > div > button {
+        border: none !important ;
+        box-shadow: none !important;
+        outline: none !important;
+}

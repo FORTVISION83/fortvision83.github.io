@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Fort Napoléon - Carte</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="CSS/map.css">
+</head>
+
+
+
+<body>
+
+    <!-- Coordonnées affichées en mode errante -->
+    <div id="wander-coords-display" style="
+    position: absolute;
+    top: 15vh;
+    width: 90%;
+
+    background: rgba(255,255,255,0.95);
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 11px;
+    box-shadow: 0 0 4px rgba(0,0,0,0.2);
+    z-index: 1001;
+    display: none;
+    font-family: monospace;
+    color: #273909;
+    font-weight: bold;
+    ">
+        <p>Coordonnées des POIs</h5>
+        <ul id="coords-list" style="margin:0; padding-left:1em;"></ul>
+    </div>
+
+    <svg width="0" height="0" style="position:absolute">
+        <clipPath id="header-clip" clipPathUnits="objectBoundingBox">
+            <path d="M1,0 H0 V1 L0.476,0.826 L0.599,0.925 L0.777,0.783 L1,1 V0" />
+        </clipPath>
+    </svg>
+    <div class="header-clipped">
+        <nav class="navbar navbar-dark fixed-top" style="background-color: #273909;">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="index.html">
+                    <img src="images/logo1.png" alt="Logo" class="logo-small">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarFullscreen" aria-controls="navbarFullscreen" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+        </nav>
+    </div>
+
+    <div class="collapse fade" id="navbarFullscreen">
+        <div class="d-flex flex-column justify-content-start align-items-center position-fixed top-0 start-0 w-100 h-100"
+            style="z-index: 1050; background-color: #273909;">
+            <!-- Titre et bouton de fermeture -->
+            <div class="w-100 d-flex justify-content-between align-items-center px-4 pt-4">
+                <h2 class="text-white m-0">Menu</h2>
+                <!-- Le bouton croix va fermer le menu via JavaScript Bootstrap -->
+                <button type="button" class="btn btn-link text-white fs-1 p-0 m-0" id="closeMenuBtn" aria-label="Fermer"
+                    style="text-decoration:none;">&times;</button>
+            </div>
+            <!-- Liens du menu -->
+            <ul class="navbar-nav text-center m-3">
+                <li class="nav-item mb-2">
+                    <a id="parcours-actuel" class="nav-link fs-2 text-white" href="#">Parcours en cours : ...</a>
+                </li>
+
+                <li class="nav-item mb-4">
+                    <a class="nav-link fs-2 text-white" style="text-decoration: underline; font-weight:600;"
+                        href="parcours2.html">Changer de parcours</a>
+                </li>
+
+                <div class="container mt-4 p-3 rounded shadow-sm" style="background-color: white; max-width: 400px;">
+                    <h6 class="text-center mb-3" style="color:#273909; font-weight: 900; text-decoration: underline;">
+                        Légendes</h6>
+                    <div class="d-flex justify-content-around text-center align-items-end pt-3">
+                        <!-- En cours -->
+                        <div>
+                            <div class="rounded-circle d-flex align-items-center justify-content-center mx-auto"
+                                style="width: 50px; height: 50px; background-color: #d4f1d4; color: #273909; font-weight: bold;">
+                                1</div>
+                            <div class="fw-bold mt-3" style="color:#273909;">En cours</div>
+                        </div>
+
+                        <!-- Pas visité -->
+                        <div class="d-flex flex-column justify-content-center align-items-center">
+                            <div class="fw-bold mb-3" style="color:#273909;">Pas visité</div>
+                            <div class="rounded-circle d-flex align-items-center justify-content-center"
+                                style="width: 50px; height: 50px; background-color: #273909; color: white; font-weight: bold;">
+                                2</div>
+                        </div>
+
+                        <!-- Déjà visité -->
+                        <div>
+                            <div class="rounded-circle d-flex align-items-center justify-content-center mx-auto"
+                                style="width: 50px; height: 50px; background-color: #e67e22; color: white; font-weight: bold;">
+                                3</div>
+                            <div class="fw-bold mt-3" style="color:#273909;">Déjà visité</div>
+                        </div>
+                    </div>
+                </div>
+
+                <li class="nav-item pt-1 m-3">
+                    <p class="nav-link fs-3 text-white mb-0" style="text-decoration: underline; font-weight:600;">Infos
+                        pratiques</p>
+                    <p class="nav-link fs-7  text-start text-white m-0">Adresse : Chemin Marc Sangnier 83500 La
+                        Seyne-sur-Mer</p>
+                    <p class="nav-link fs-7 text-white   text-start m-0">Téléphone : 04 94 30 42 80</p>
+                    <p class="nav-link fs-7 text-white  text-start  m-0">Site web :
+                        <a href="https://www.la-seyne.fr/decouvrir-la-ville/patrimoine/militaire/fort-napoleon/"
+                            target="_blank">https://www.la-seyne.fr/decouvrir-la-ville/patrimoine/militaire/fort-napoleon/</a>
+                    </p>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="map"></div>
+    <svg width="0" height="0" style="position:absolute">
+        <defs>
+            <clipPath id="status-clip" clipPathUnits="objectBoundingBox">
+                <path
+                    d="M0.228,0.201 l-0.244,-0.201 v1 h1 v-1 l-0.077,0.123 l-0.136,-0.025 l-0.248,0.104 l-0.212,-0.079 l-0.083,0.079 z" />
+            </clipPath>
+        </defs>
+    </svg>
+
+    <div id="status">⌛ Activation géolocalisation...</div>
+
+    <div class="places-panel">
+        <h6>Lieux proches</h6>
+        <ul id="places-list" class="list-group"></ul>
+    </div>
+
+    <div class="offcanvas offcanvas-bottom" tabindex="-1" id="sidebar" aria-labelledby="sidebarLabel"
+        style="height: 50vh;">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="sidebarLabel">Point Information</h5>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <div id="sidebar-content"></div>
+        </div>
+    </div>
+
+    <!-- MODE ERRANTE -->
+    <div id="wander-container" style="
+            position: absolute;
+            bottom: 30vh;
+            right: 10px;
+            z-index: 1000;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 0 5px rgba(0,0,0,0.2);
+            padding: 10px;
+            width: 180px;
+        ">
+        <button id="toggleWander" class="btn btn-warning btn-sm w-100">MODE ERRANTE</button>
+
+        <div id="wander-fields" style="display: none;">
+            <input type="number" id="latInput" placeholder="Latitude" step="0.000001"
+                class="form-control form-control-sm mb-1" />
+            <input type="number" id="lngInput" placeholder="Longitude" step="0.000001"
+                class="form-control form-control-sm mb-2" />
+            <button id="applyWander" class="btn btn-primary btn-sm w-100">Appliquer</button>
+        </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/@turf/turf@6/turf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+
+
+    <!-- Modale vidéo rotative -->
+    <div class="modal fade" id="videoModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-fullscreen m-0">
+            <div class="modal-content bg-black border-0 rounded-0">
+                <div class="modal-body p-0 position-relative">
+
+                    <button type="button" class="btn-close btn-close-white position-absolute top-0 end-0 m-3 z-3"
+                        data-bs-dismiss="modal" aria-label="Fermer"></button>
+
+                    <div class="d-flex justify-content-center align-items-center w-100 h-100 bg-black">
+                        <video id="fullscreenVideo" controls autoplay muted preload="metadata" style="transform: rotate(90deg);
+                                transform-origin: center;
+                                width: calc(100vh - 32px);
+                                height: calc(100vw - 32px);
+                                object-fit: cover;
+                                border-radius: 8px;">
+                            <source src="" type="video/mp4">
+                            Votre navigateur ne supporte pas la lecture vidéo.
+                        </video>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

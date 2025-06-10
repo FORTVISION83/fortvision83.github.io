@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <title>FORTVISION - Accueil</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.typekit.net/try6bqo.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="CSS/index.css">
+
+</head>
+
+<body>
+  <svg width="0" height="0" style="position: absolute;">
+    <defs>
+      <!-- Forme zigzag pour le header -->
+      <clipPath id="header-clip" clipPathUnits="objectBoundingBox">
+        <path d="M1,0 H0 V1 L0.476,0.826 L0.599,0.925 L0.777,0.783 L1,1 V0" />
+      </clipPath>
+
+      <clipPath id="mid-clip" clipPathUnits="objectBoundingBox">
+        <path d="M0.2,0.1 L0,0 V0.9 L0.3,0.85 L0.5,0.95 L0.8,0.9 L1,1 V0.15 L0.5,0.07 Z" />
+      </clipPath>
+    </defs>
+  </svg>
+
+  <div class="header-clipped">
+    <div class="container-fluid d-flex align-items-center justify-content-between px-3">
+      <img src="images/logo1.png" alt="Logo Fort Napoléon" class="header-logo">
+      <span class="fw-bold fs-3">FORT<span class="fw-normal">VISION</span></span>
+    </div>
+  </div>
+
+  <div class="container-fluid py-4 px- text-center">
+    <h2 class="fw-semibold text-fortgreen py-3 px-5" style="font-size:24px;">Bienvenue sur l'espace naturel sensible du
+    </h2>
+    <h1 class="fw-black fw-bold text-fortgreen py-3" style="font-size:30px;">FORT NAPOLÉON</h1>
+    <p class="py-3" style="font-size: 16px;">
+      Chaque parcours que nous proposons est composé de <span class="fw-bold">points d'intérêts</span> interactifs qui
+      vous guideront à travers la visite.
+    </p>
+  </div>
+
+  <div class="mid-clipped px-3">
+    <div class="circle-x">x</div>
+    <p class="my-3">Voici un <span class="fw-bold">point d'intérêt</span> X.</p>
+    <p class="my-3">Il est affiché sur votre carte et s'ouvrira<br>quand vous êtes à proximité ou lors d'un clic.</p>
+    <p class="my-3">
+      <span class="highlight-green">Chaque point d'intérêt est numéroté</span>
+      et sera accompagné d'une courte vidéo explicative ainsi qu'une description et des images.
+    </p>
+  </div>
+  <div>
+    <a href="parcours2.html" class="btn btn-fortorange d-block mx-auto m-3 mb-5">
+      Choix du Parcours &nbsp; &rarr;
+    </a>
+  </div>
+
+
+</body>
+
+</html>

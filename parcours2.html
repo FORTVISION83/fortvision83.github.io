@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+        <meta charset="UTF-8">
+        <title>FORTVISION - Parcours</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="CSS/parcours.css">
+</head>
+
+<body>
+        <svg width="0" height="0" style="position:absolute">
+                <clipPath id="header-clip" clipPathUnits="objectBoundingBox">
+                        <path d="M1,0 H0 V1 L0.476,0.826 L0.599,0.925 L0.777,0.783 L1,1 V0" />
+                </clipPath>
+
+                <clipPath id="clip-path-1" clipPathUnits="objectBoundingBox">
+                        <path
+                                d="M0.471,0.02 L0,0.103 C0.007,0.103,0.006,0.617,0,0.872 L0.202,0.971 L0.763,0.901 L0.873,1 L1,0.947 V0.106 L0.776,0 L0.6,0.075 L0.471,0.02">
+                        </path>
+                </clipPath>
+
+                <clipPath id="clip-path-2" clipPathUnits="objectBoundingBox">
+                        <path
+                                d="M0.18,0.872 L0.002,1 L0.002,0.005 L0.206,0.181 L0.762,0.063 L0.87,0.231 L1,0.139 L1,1 L0.799,0.872 L0.624,0.944 L0.18,0.872">
+                        </path>
+                </clipPath>
+
+                <clipPath id="clip-path-3" clipPathUnits="objectBoundingBox">
+                        <path
+                                d="M0.187,0 L0.001,0.102 L0,0.913 L0.194,0.855 L0.243,0.952 L0.625,0.855 L0.786,1 L0.996,0.862 L1,0.107 L0.801,0 L0.629,0.058 L0.187,0">
+                        </path>
+                </clipPath>
+
+                <clipPath id="clip-path-4" clipPathUnits="objectBoundingBox">
+                        <path
+                                d="M0.186,0.002 L0,0.057 L0.002,0.907 L0.18,0.957 L0.273,0.898 L0.632,1 L0.814,0.95 L1,1 V0.002 L0.786,0.138 L0.623,0.002 L0.237,0.095 L0.186,0.002">
+                        </path>
+                </clipPath>
+        </svg>
+
+        <div class="header-clipped">
+                <div class="container-fluid d-flex align-items-center justify-content-between px-3">
+                        <a href="index.html">
+                                <img src="images/logo1.png" alt="Logo Fort Napoléon" class="header-logo">
+                        </a>
+                        <span class="fw-bold fs-4">FORT<span class="fw-normal">VISION</span></span>
+                </div>
+        </div>
+
+        <!-- Section 1: Orange - Parcours interactif -->
+        <a href="map.html?parcours=parcours1">
+                <div class="section section-orange">
+                        <div class="container">
+                                <h2 class="fw-bold pb-3 text-center">Parcours interactif</h2>
+
+                                <div class="row parcours-info pt-4 align-items-center;">
+                                        <div class="col-4 row justify-content-center">
+                                                <div class="circle circle-r">1</div>
+                                                <div class="pt-3 text-center">850m</div>
+                                        </div>
+
+                                        <div class="col parcours-details">
+                                                <div class="fw-bold fs-6">Aux pieds des remparts</div>
+                                                <div class="mt-1 text1">Tour du Fort, et de ses vestiges, et passage par
+                                                        les
+                                                        points
+                                                        de vue</div>
+                                                <div class="fw-bold text1">(7 points d'intérêts)</div>
+                                        </div>
+                                </div>
+                        </div>
+        </a>
+        </div>
+
+        <!-- Section 2: Green - Parcours en autonomie -->
+        <div class="section section-green">
+                <div class="container">
+                        <h2 class="fw-bold p-2 m-0 text-center">Parcours en autonomie</h2>
+                </div>
+        </div>
+
+        <!-- Section 3: Light - Circuit en forêt -->
+        <a href="map.html?parcours=parcours2">
+                <div class="section section-light">
+                        <div class="container">
+                                <div class="row parcours-info align-items-center" style="flex-direction: row-reverse;">
+                                        <div class="col-4 row justify-content-center ">
+                                                <div class="circle circle-r">2</div>
+                                                <div class="pt-3 text-center">850m</div>
+                                        </div>
+
+                                        <div class="col parcours-details">
+                                                <div class="fw-bold fs-6">Circuit en forêt</div>
+                                                <div class="mt-1 text1 green">Exploration des alentours par la forêt
+                                                        et informations sur la faune et flore</div>
+                                                <div class="fw-bold text1 green">(Parcours sans POI)</div>
+                                        </div>
+                                </div>
+                        </div>
+                </div>
+        </a>
+        <div class="d-flex">
+                <svg viewBox="0 0 400 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1 18.1603L82 6.66028L103.5 26.6603L265 6.66028L334 36.6603L425 6.66028"
+                                stroke="#273909" stroke-width="11" />
+                </svg>
+
+        </div>
+        <!-- Section 4: Bottom green - Tour de ronde -->
+        <a href="map.html?parcours=parcours3">
+                <div class="section section-bottom">
+                        <div class="container">
+                                <div class="row parcours-info">
+                                        <div class="col-4 row justify-content-center align-items-center">
+                                                <div class="circle circle-r">3</div>
+                                                <div class="pt-3 text-center">850m</div>
+                                        </div>
+
+                                        <div class="col parcours-details">
+                                                <div class="fw-bold fs-6">Tour de ronde</div>
+                                                <div class="mt-1 text1 green">Informations sur l'architecture militaire
+                                                        et les stratégies adoptées</div>
+                                                <div class="fw-bold text1 green">(Parcours sans POI)</div>
+                                        </div>
+                                </div>
+                        </div>
+                </div>
+        </a>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

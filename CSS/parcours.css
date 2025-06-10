@@ -1,0 +1,79 @@
+
+                body {
+                        font-family: 'alexandria', sans-serif;
+                }
+
+                .section {
+                        position: relative;
+                        margin: 0;
+                        overflow: hidden;
+                        margin-top: -7vh;
+                        /* width: 100%; */
+                        margin-left: -1%;
+                }
+
+                .section-orange {
+                        background: #E47310;
+                        color: white;
+                        clip-path: url(#clip-path-1);
+                        -webkit-clip-path: url(#clip-path-1);
+                        padding: 90px 20px 80px;
+                }
+
+                .section-green {
+                        background: #273909;
+                        color: white;
+                        clip-path: url(#clip-path-2);
+                        -webkit-clip-path: url(#clip-path-2);
+                        padding: 40px 20px 40px;
+                }
+
+                .section-light {
+                        color: #273909;
+                        clip-path: url(#clip-path-3);
+                        -webkit-clip-path: url(#clip-path-3);
+                        padding: 100px 20px 30px;
+                }
+
+                .section-bottom {
+                        color: #273909;
+                        clip-path: url(#clip-path-4);
+                        -webkit-clip-path: url(#clip-path-4);
+                        padding: 60px 20px 20px;
+                        margin-top: -1px;
+                }
+
+                .circle {
+                        width: 70px;
+                        height: 70px;
+                        border-radius: 50%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        font-size: 2rem;
+                        font-weight: bold;
+                        flex-shrink: 0;
+                }
+
+                .circle-r {
+                        background: white;
+                        color: #f39200;
+                }
+
+                .circle-f {
+                        background: #f39200;
+                        color: white;
+                }
+
+                .circle-t {
+                        background: #273909;
+                        color: white;
+                        border: 2px solid white;
+                }
+
+
+                svg {
+                        width: 100%;
+                        height: auto;
+                        display: block;
+                }
