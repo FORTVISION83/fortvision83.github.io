@@ -31,7 +31,7 @@
                     5.8936
                 ],
                 "radius": 20,
-                "description": "Vous êtes devant un glacis. Ça a l’air d’être juste une pente, et pourtant, c’est une arme redoutable. Elle permettait aux soldats du fort de voir l’ennemi arriver de loin, sans être vus. Les attaquants, eux, devaient grimper cette pente sans aucun abri, complètement à découvert. Et pendant qu’ils galèrent à monter, les défenseurs les attendent en haut, bien protégés. Et au final, beaucoup d’ennemis n’arrivaient même pas jusqu’au fort. Certains faisaient demi-tour rien qu’en voyant ça. Le glacis, c’était un vrai mur invisible. Grâce à lui, ce fort était presque imprenable.",
+                "description": "Vous êtes devant un glacis. Ça a l'air d'être juste une pente, et pourtant, c'est une arme redoutable. Elle permettait aux soldats du fort de voir l'ennemi arriver de loin, sans être vus. Les attaquants, eux, devaient grimper cette pente sans aucun abri, complètement à découvert. Et pendant qu'ils galèrent à monter, les défenseurs les attendent en haut, bien protégés. Et au final, beaucoup d'ennemis n'arrivaient même pas jusqu'au fort. Certains faisaient demi-tour rien qu'en voyant ça. Le glacis, c'était un vrai mur invisible. Grâce à lui, ce fort était presque imprenable.",
                 "video": "videos/3.mp4"
             },
             {
@@ -41,7 +41,7 @@
                     5.8925
                 ],
                 "radius": 50,
-                "description": "Imaginez, vous avez réussi à survivre aux glacis… et là, vous tombez sur un long couloir étroit, un couloir de la mort. Ce n’est pas pour rien. L’ennemi qui entrait là était piégé. Il était coincé entre deux grands murs, sans endroit où fuir, sans aucun abri. Au bout, les défenseurs du fort l’attendaient, armés et prêts. C’était comme un piège à rats. Impossible de reculer, impossible d’avancer sans se faire tirer dessus. Ce passage était fait pour bloquer l’ennemi et l’éliminer rapidement. Arriver devant ce couloir, c’était comme signer son arrêt de mort.",
+                "description": "Imaginez, vous avez réussi à survivre aux glacis… et là, vous tombez sur un long couloir étroit, un couloir de la mort. Ce n'est pas pour rien. L'ennemi qui entrait là était piégé. Il était coincé entre deux grands murs, sans endroit où fuir, sans aucun abri. Au bout, les défenseurs du fort l'attendaient, armés et prêts. C'était comme un piège à rats. Impossible de reculer, impossible d'avancer sans se faire tirer dessus. Ce passage était fait pour bloquer l'ennemi et l'éliminer rapidement. Arriver devant ce couloir, c'était comme signer son arrêt de mort.",
                 "video": "videos/4.mov"
             },
             {
@@ -51,17 +51,17 @@
                     5.892248
                 ],
                 "radius": 30,
-                "description": "Vous voyez sûrement les angles de ce fort, ce sont les bastions de forme pointue du fort Napoléon. Placée sur chaque angle du fort, cette défense permet de croiser les tirs et surtout de réduire les angles morts. Les défenseurs se placent dessus pour tirer sur les premiers attaquants et se retirent au fort lorsqu’ils sont en danger. Derrière vous, à flanc de colline, se dresse un autre gardien de la rade : le Fort de Pipaudon. Avec Napoléon, ils formaient un duo stratégique. Grâce à des signaux visuels, les deux forts communiquaient entre eux sur toute potentielle attaque.",
+                "description": "Vous voyez sûrement les angles de ce fort, ce sont les bastions de forme pointue du fort Napoléon. Placée sur chaque angle du fort, cette défense permet de croiser les tirs et surtout de réduire les angles morts. Les défenseurs se placent dessus pour tirer sur les premiers attaquants et se retirent au fort lorsqu'ils sont en danger. Derrière vous, à flanc de colline, se dresse un autre gardien de la rade : le Fort de Pipaudon. Avec Napoléon, ils formaient un duo stratégique. Grâce à des signaux visuels, les deux forts communiquaient entre eux sur toute potentielle attaque.",
                 "video": "videos/5.mp4"
             },
             {
-                "titre": "Vue sur la rade, l'Eguillette et Balaguier",
+                "titre": "Emplacement stratégique",
                 "coords": [
                     43.09309,
                     5.892728
                 ],
                 "radius": 40,
-                "description": "Comme vous pouvez le voir, cet emplacement surplombe complètement le bassin méditaranéen. C’est pour ça que Napoléon a choisi cette colline pour reprendre Toulon. Il permet de prendre le contrôle de Balaguier et de l’Eguillette qui surveillent l’entrée et la sortie de la rade de Toulon. Après avoir pris cette colline, les anglais n’avaient plus le choix, ils devaient quitter la ville au plus vite. Après la reprise de la ville, ce fort permettait de surveiller une grande partie du bassin méditeranéen de toute potentielle attaque.",
+                "description": "Comme vous pouvez le voir, cet emplacement surplombe complètement le bassin méditaranéen. C'est pour ça que Napoléon a choisi cette colline pour reprendre Toulon. Il permet de prendre le contrôle de Balaguier et de l'Eguillette qui surveillent l'entrée et la sortie de la rade de Toulon. Après avoir pris cette colline, les anglais n'avaient plus le choix, ils devaient quitter la ville au plus vite. Après la reprise de la ville, ce fort permettait de surveiller une grande partie du bassin méditeranéen de toute potentielle attaque.",
                 "video": "videos/6.mp4"
             }
         ]
