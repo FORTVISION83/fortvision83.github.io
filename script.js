@@ -137,7 +137,6 @@ function initializeMap(parcours, initialCoords) {
                                 </video>
                                 </div>
                                 <p class="pt-4">${point.description}</p>
-                                <p><strong>Rayon:</strong> ${point.radius}m</p>
                                 `;
 
                         showSidebar(content);

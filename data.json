@@ -37,8 +37,8 @@
             {
                 "titre": "Le couloir de la mort",
                 "coords": [
-                    43.09517,
-                    5.8925
+                    43.09489,
+                    5.8936
                 ],
                 "radius": 50,
                 "description": "Imaginez, vous avez réussi à survivre aux glacis… et là, vous tombez sur un long couloir étroit, un couloir de la mort. Ce n'est pas pour rien. L'ennemi qui entrait là était piégé. Il était coincé entre deux grands murs, sans endroit où fuir, sans aucun abri. Au bout, les défenseurs du fort l'attendaient, armés et prêts. C'était comme un piège à rats. Impossible de reculer, impossible d'avancer sans se faire tirer dessus. Ce passage était fait pour bloquer l'ennemi et l'éliminer rapidement. Arriver devant ce couloir, c'était comme signer son arrêt de mort.",
@@ -72,6 +72,73 @@
         "distance": 5,
         "points": [
             {
+                "titre": "POI1",
+                "coords": [
+                    43.09517,
+                    5.8925
+                ],
+                "radius": 50,
+                "description": "Point de départ de votre aventure historique.",
+                "video": "videos/1.mp4"
+            },
+            {
+                "titre": "POI2",
+                "coords": [
+                   43.09435542927539,
+                   5.895212
+                ],
+                "radius": 30,
+                "description": "Explorez la tour est et son architecture unique.",
+                "video": "videos/2.mp4"
+            },
+            {
+                "titre": "POI3",
+                "coords": [
+                   43.095783047989464,
+                   5.89408
+                ],
+                "radius": 40,
+                "description": "Un espace de calme et de verdure au cœur du fort.",
+                "video": "videos/3.mp4"
+            },
+            {
+                "titre": "POI4",
+                "coords": [
+                  43.09382065330407,
+                  5.891312
+                ],
+                "radius": 40,
+                "description": "Un espace de calme et de verdure au cœur du fort.",
+                "video": "videos/4.mp4"
+            },
+            {
+                "titre": "POI5",
+                "coords": [
+                  43.092666159691404,
+                  5.89239
+                ],
+                "radius": 40,
+                "description": "Un espace de calme et de verdure au cœur du fort.",
+                "video": "videos/5.mp4"
+            },
+            {
+                "titre": "POI6",
+                "coords": [
+                  43.092666159691404,
+                  5.89239
+                ],
+                "radius": 40,
+                "description": "Un espace de calme et de verdure au cœur du fort.",
+                "video": "videos/5.mp4"
+            }
+        ]
+    },
+    "parcours3": {
+        "description": "Un circuit plus long pour les amateurs d'histoire.",
+        "time": 60,
+        "distance": 5,
+        "points": [
+            {
                 "titre": "Porte est",
                 "coords": [
                     43.09517,
@@ -100,43 +167,6 @@
                 "radius": 40,
                 "description": "Un espace de calme et de verdure au cœur du fort.",
                 "video": "videos/3.mp4"
-            }
-        ]
-    },
-    "parcours3": {
-        "description": "Un circuit plus long pour les amateurs d'histoire.",
-        "time": 60,
-        "distance": 5,
-        "points": [
-            {
-                "titre": "Départ",
-                "coords": [
-                    43.120,
-                    5.940
-                ],
-                "radius": 10,
-                "description": "Point de départ de votre aventure historique.",
-                "video": "videos/test.mov"
-            },
-            {
-                "titre": "Tour",
-                "coords": [
-                    43.125,
-                    5.945
-                ],
-                "radius": 10,
-                "description": "Explorez la tour est et son architecture unique.",
-                "video": "videos/test.mov"
-            },
-            {
-                "titre": "Verdure",
-                "coords": [
-                    43.124,
-                    5.944
-                ],
-                "radius": 10,
-                "description": "Un espace de calme et de verdure au coeur de la forêt du fort Napoléon.",
-                "video": "videos/test.mov"
             }
         ]
     }
