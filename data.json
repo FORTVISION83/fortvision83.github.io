@@ -30,7 +30,7 @@
                     43.0945562,
                     5.89344
                 ],
-                "radius": 20,
+                "radius": 15,
                 "description": "Vous êtes devant un glacis. Ça a l'air d'être juste une pente, et pourtant, c'est une arme redoutable. Elle permettait aux soldats du fort de voir l'ennemi arriver de loin, sans être vus. Les attaquants, eux, devaient grimper cette pente sans aucun abri, complètement à découvert. Et pendant qu'ils galèrent à monter, les défenseurs les attendent en haut, bien protégés. Et au final, beaucoup d'ennemis n'arrivaient même pas jusqu'au fort. Certains faisaient demi-tour rien qu'en voyant ça. Le glacis, c'était un vrai mur invisible. Grâce à lui, ce fort était presque imprenable.",
                 "video": "videos/3.mp4"
             },
@@ -40,7 +40,7 @@
                     43.09489,
                     5.8936
                 ],
-                "radius": 50,
+                "radius": 15,
                 "description": "Imaginez, vous avez réussi à survivre aux glacis… et là, vous tombez sur un long couloir étroit, un couloir de la mort. Ce n'est pas pour rien. L'ennemi qui entrait là était piégé. Il était coincé entre deux grands murs, sans endroit où fuir, sans aucun abri. Au bout, les défenseurs du fort l'attendaient, armés et prêts. C'était comme un piège à rats. Impossible de reculer, impossible d'avancer sans se faire tirer dessus. Ce passage était fait pour bloquer l'ennemi et l'éliminer rapidement. Arriver devant ce couloir, c'était comme signer son arrêt de mort.",
                 "video": "videos/4.mov"
             },
@@ -57,8 +57,8 @@
             {
                 "titre": "Emplacement stratégique",
                 "coords": [
-                   43.095003,
-                   5.893672
+                   43.09309,
+                    5.892728
                 ],
                 "radius": 40,
                 "description": "Comme vous pouvez le voir, cet emplacement surplombe complètement le bassin méditaranéen. C'est pour ça que Napoléon a choisi cette colline pour reprendre Toulon. Il permet de prendre le contrôle de Balaguier et de l'Eguillette qui surveillent l'entrée et la sortie de la rade de Toulon. Après avoir pris cette colline, les anglais n'avaient plus le choix, ils devaient quitter la ville au plus vite. Après la reprise de la ville, ce fort permettait de surveiller une grande partie du bassin méditeranéen de toute potentielle attaque.",
