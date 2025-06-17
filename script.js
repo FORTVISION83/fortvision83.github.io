@@ -1,7 +1,3 @@
-
-//TODOLIST
-//- Rajouter le "En cours" comme état pour les POI
-
 document.getElementById('closeMenuBtn').addEventListener('click', function () {
         var menu = document.getElementById('navbarFullscreen');
         var bsCollapse = bootstrap.Collapse.getOrCreateInstance(menu);
@@ -102,7 +98,8 @@ function initializeMap(parcours, initialCoords) {
                 zoom: 17,
                 minZoom: 16,
                 maxZoom: 18,
-                maxBoundsViscosity: 1.0 // Empêche le déplacement en dehors des bounds
+                maxBoundsViscosity: 1.0, // Empêche le déplacement en dehors des bounds
+                zoomControl: false
 
         }).setView(initialCoords, 18);
 
@@ -114,7 +111,8 @@ function initializeMap(parcours, initialCoords) {
                         iconSize: [25, 25],
                         iconAnchor: [16, 32],
                         className: 'marker-icon'
-                })
+                }),
+                zIndexOffset: 10000 //= Visible Par dessus les poi
         }).addTo(map);
 
 

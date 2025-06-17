@@ -19,15 +19,13 @@
     <!-- Coordonnées affichées en mode errante -->
     <div id="wander-coords-display" style="
     position: absolute;
-    top: 15vh;
-    width: 90%;
-
-    background: rgba(255,255,255,0.95);
-    padding: 8px 12px;
+    bottom: 12vh;
+    background: rgba(255, 255, 255, 0.5);
+    padding: 8px 8px;
     border-radius: 6px;
-    font-size: 11px;
+    font-size: 8px;
     box-shadow: 0 0 4px rgba(0,0,0,0.2);
-    z-index: 1001;
+    z-index: 999;
     display: none;
     font-family: monospace;
     color: #273909;
@@ -157,16 +155,17 @@
     <!-- MODE ERRANTE -->
     <div id="wander-container" style="
             position: absolute;
-            bottom: 30vh;
+            top: 15vh;
             right: 10px;
             z-index: 1000;
             background: white;
             border-radius: 8px;
             box-shadow: 0 0 5px rgba(0,0,0,0.2);
-            padding: 10px;
+            padding: 6px 8px;
             width: 180px;
+            width: fit-content;
         ">
-        <button id="toggleWander" class="btn btn-warning btn-sm w-100">MODE ERRANTE</button>
+        <button id="toggleWander" class="btn btn-sm w-100">MODE ERRANTE</button>
 
         <div id="wander-fields" style="display: none;">
             <input type="number" id="latInput" placeholder="Latitude" step="0.000001"
