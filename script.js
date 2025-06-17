@@ -16,16 +16,58 @@ let watchId = null;
 let wanderMode = false; // Flag pour savoir si on est en mode errante ou auto
 let parcours; // parcours global
 
+function createNumberedIcon(number, state) {
+        let className = 'custom-number-icon ';
+        switch (state) {
+                case 'visited':
+                        className += 'visited'; // Orange
+                        break;
+                case 'next-point':
+                        className += 'next-point'; // Vert menthe
+                        break;
+                default:
+                        className += 'non-visited'; // Vert foncé
+        }
 
-function createNumberedIcon(number, isVisited) {
         return L.divIcon({
-                className: 'custom-number-icon ' + (isVisited ? 'visited' : 'non-visited'),
+                className: className,
                 html: `<div class="circle">${number}</div>`,
-                iconSize: [50, 50],
-                iconAnchor: [17, 35],
-                popupAnchor: [0, -30]
+                iconSize: [30, 30],
+                iconAnchor: [15, 15]
         });
 }
+
+// function createNumberedIcon(number, isVisited) {
+//         return L.divIcon({
+//                 className: 'custom-number-icon ' + (isVisited ? 'visited' : 'non-visited'),
+//                 html: `<div class="circle">${number}</div>`,
+//                 iconSize: [50, 50],
+//                 iconAnchor: [17, 35],
+//                 popupAnchor: [0, -30]
+//         });
+// }
+
+function getNextPoint(parcours) {
+        for (let i = 0; i < parcours.points.length; i++) {
+                if (!parcours.points[i].visite) {
+                        return i;
+                }
+        }
+        return -1; // Tous les points sont visités
+}
+function updateAllMarkers() {
+        const nextIdx = getNextPointIndex(parcours.points);
+        parcours.points.forEach((pt, i) => {
+                const state = pt.visite
+                        ? 'visited'
+                        : (i === nextIdx ? 'next-point' : 'non-visited');
+                pt.marker.setIcon(createNumberedIcon(i + 1, state));
+        });
+}
+function getNextPointIndex(points) {
+        return points.findIndex(p => p.visite === false);
+}
+
 
 function debounce(func, wait) {
         let timeout;
@@ -119,7 +161,7 @@ function initializeMap(parcours, initialCoords) {
         // Ajouter les marqueurs pour chaque point du parcours
         parcours.points.forEach((point, index) => {
                 const marker = L.marker(point.coords, {
-                        icon: createNumberedIcon(index + 1, false)
+                        icon: createNumberedIcon(index + 1, 'normal')
                 }).bindTooltip(point.titre, { permanent: false, direction: 'top' }).addTo(map);
 
                 point.marker = marker;
@@ -156,7 +198,11 @@ function initializeMap(parcours, initialCoords) {
                         point.radius / 1000,
                         { units: 'kilometers' }
                 );
+
+
         });
+        updateAllMarkers(); // Initialise les états des marqueurs
+
 
         // Tracer le parcours avec une ligne
         const polylinePoints = parcours.points.map(point => point.coords);
@@ -202,10 +248,9 @@ function initializeMap(parcours, initialCoords) {
                                         // Marquer visité seulement si on entre dans la zone
                                         if (!point.visite && turf.booleanPointInPolygon(userPoint, point.zone)) {
                                                 point.visite = true;
-                                                if (point.marker) {
-                                                        point.marker.setIcon(createNumberedIcon(point.index + 1, true));
-                                                }
+                                                // updateAllMarkers(); // Met à jour tous les marqueurs
                                         }
+
 
                                         if (distance < closestDistance) {
                                                 closestDistance = distance;
@@ -296,9 +341,7 @@ function processUserCoords(coords) {
                 // Marquer “visité” si on entre dans la zone pour la première fois
                 if (!point.visite && turf.booleanPointInPolygon(userPoint, point.zone)) {
                         point.visite = true;
-                        if (point.marker) {
-                                point.marker.setIcon(createNumberedIcon(index + 1, true));
-                        }
+                        updateAllMarkers();
                 }
 
                 if (distance < closestDistance) {
@@ -401,6 +444,7 @@ document.getElementById("applyWander").addEventListener("click", () => {
 fetch('data.json')
         .then(response => response.json())
         .then(data => {
+
                 // Sélection dynamique du parcours
                 const parcoursNoms = Object.keys(data);
                 const urlParams = new URLSearchParams(window.location.search);
@@ -437,6 +481,9 @@ fetch('data.json')
                 } else {
                         initializeMap(parcours, parcours.points[0].coords);
                 }
+                parcours.points.forEach(pt => {
+                        pt.visite = false;
+                });
         });
 
 

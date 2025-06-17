@@ -137,3 +137,16 @@ html {
     background-color: #273909;
     /* non visité = vert foncé */
 }
+/* Prochain point (vert menthe) */
+.custom-number-icon.next-point .circle {
+    background-color: #CFEDCC;
+    border: 2px solid #30652b;
+    color: #000;
+    animation: nextPointPulse 1.5s infinite; /* Pulsation continue */  
+}
+
+@keyframes nextPointPulse {
+    0%   { box-shadow: 0 0 0 0 #CFEDCC; }
+    70%  { box-shadow: 0 0 0 15px rgba(0, 255, 127, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(0, 255, 127, 0); }
+}
