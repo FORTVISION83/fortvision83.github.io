@@ -1,129 +1,137 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100vw;
+    font-family: 'alexandria', sans-serif;
+    overflow-x: hidden;
+}
 
-        body {
-            margin: 0;
-            padding: 0;
-            height: 100vh;
-            width: 100vw;
-            font-family: 'alexandria', sans-serif;
-        }
+html {
+    overflow-x: hidden;
+}
 
-        #map {
-            height: 90vh;
-            width: 100%;
-            z-index: 1;
-            margin-top: -1.2vh;
-        }
+#map {
+    height: 95vh;
+    width: 100%;
+    z-index: 1;
+    margin-top: -2vh;
+}
 
-        .header {
-            position: relative;
-            top: 0;
-            left: 0;
-            right: 0;
-            background-color: #273909;
-            color: white;
-            padding: 10px;
-            z-index: 1000;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+.header {
+    position: relative;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: #273909;
+    color: white;
+    padding: 10px;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
-        .logo-small {
-            width: 50px;
-            height: 50px;
-        }
+.logo-small {
+    width: 50px;
+    height: 50px;
+}
 
-        .offcanvas-header {
-            background-color: #273909;
-            color: white;
-        }
+.offcanvas-header {
+    background-color: #273909;
+    color: white;
+}
 
-        .change-parcours-btn {
-            background-color: #e67e22;
-            color: white;
-            border: none;
-            padding: 5px 10px;
-            border-radius: 15px;
-            font-size: 14px;
-        }
+.change-parcours-btn {
+    background-color: #e67e22;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 14px;
+}
 
-        .places-panel {
-            position: absolute;
-            bottom: 12vh;
-            right: 10px;
-            background-color: rgba(255, 255, 255, 0.9);
-            border-radius: 5px;
-            padding: 10px;
-            max-width: 200px;
-            z-index: 1000;
-            max-height: 200px;
-            overflow-y: auto;
-        }
+.places-panel {
+    position: absolute;
+    bottom: 12vh;
+    right: 10px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 5px;
+    padding: 10px;
+    max-width: 200px;
+    z-index: 1000;
+    max-height: 200px;
+    overflow-y: auto;
+}
 
-        .places-panel h6 {
-            margin-top: 0;
-            color: #273909;
-        }
+.places-panel h6 {
+    margin-top: 0;
+    color: #273909;
+}
 
-        .places-panel ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
+.places-panel ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
 
-        .places-panel li {
-            padding: 5px 0;
-            border-bottom: 1px solid #eee;
-            font-size: 12px;
-        }
+.places-panel li {
+    padding: 5px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 12px;
+}
 
-        .marker-icon {
-            filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.5));
-        }
+.marker-icon {
+    filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.5));
+}
 
-        #status {
-            padding-top: 40px;
-            padding-bottom: 4vh;
-            -webkit-clip-path: url(#status-clip);
-            clip-path: url(#status-clip);
-            z-index: 999;
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background-color: #273909;
-            color: white;
-            text-align: center;
-            z-index: 1000;
-            margin: auto;
-            width: 102%;
-        }
+#status {
+    padding-top: 50px;
+    padding-bottom: 3vh;
+    -webkit-clip-path: url(#status-clip);
+    clip-path: url(#status-clip);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding-inline: 4px;
+    background-color: #273909;
+    color: white;
+    text-align: center;
+    z-index: 1000;
+    margin: auto;
 
-        .collapsing {
-            transition: none !important;
-        }
+    max-width: 100vw;
+    width: 100%;
+    box-sizing: border-box;
+    overflow-x: auto;
+}
 
-        .custom-number-icon .circle {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background-color: #273909;
-            /* non visité */
-            color: white;
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 16px;
-            box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
-        }
+.collapsing {
+    transition: none !important;
+}
 
-        .custom-number-icon.visited .circle {
-            background-color: #e67e22;
-            /* visité = orange */
-        }
+.custom-number-icon .circle {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #273909;
+    /* non visité */
+    color: white;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
 
-        .custom-number-icon.non-visited .circle {
-            background-color: #273909;
-            /* non visité = vert foncé */
-        }
+.custom-number-icon.visited .circle {
+    background-color: #e67e22;
+    /* visité = orange */
+}
+
+.custom-number-icon.non-visited .circle {
+    background-color: #273909;
+    /* non visité = vert foncé */
+}

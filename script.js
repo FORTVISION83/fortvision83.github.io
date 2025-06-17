@@ -182,7 +182,7 @@ function initializeMap(parcours, initialCoords) {
                                 userMarker.setLatLng(userCoords);
 
                                 if (!map.getBounds().contains(userCoords)) {
-                                        document.getElementById('status').textContent = "⚠️ Vous êtes hors de la zone ! Votre géolocalisation est imprécise.";
+                                        document.getElementById('status').textContent = "⚠️ Vous êtes hors de la zone ou votre géolocation est imprécise. Vous passez en mode hors-ligne.";
 
                                         const latlngs = parcours.points.map(p => p.coords);
                                         const bounds = L.latLngBounds(latlngs);
@@ -269,8 +269,9 @@ function initializeMap(parcours, initialCoords) {
                                 alert("La géolocalisation est nécessaire pour profiter pleinement de l'expérience. Veuillez autoriser l'accès.");
                                 updatePlacesList(parcours.points, null);
                         },
-                        { enableHighAccuracy: true,
-                                timeout:2000,
+                        {
+                                enableHighAccuracy: true,
+                                timeout: 2000,
                         }
                 );
         } else {
@@ -402,23 +403,29 @@ document.getElementById("applyWander").addEventListener("click", () => {
 fetch('data.json')
         .then(response => response.json())
         .then(data => {
-                parcours = data[selectedParcours];
+                // Sélection dynamique du parcours
+                const parcoursNoms = Object.keys(data);
+                const urlParams = new URLSearchParams(window.location.search);
+                const paramParcours = urlParams.get('parcours');
+                let selectedParcours = parcoursNoms[0];
+                if (paramParcours && parcoursNoms.includes(paramParcours)) {
+                        selectedParcours = paramParcours;
+                }
 
+                parcours = data[selectedParcours];
                 if (!parcours) {
                         alert("Parcours non trouvé !");
-                        window.location.href = "parcours.html";
+                        window.location.href = "index.html";
                         return;
                 }
 
                 window.parcours = parcours;
-
                 const parcoursNom = parcours.nom || selectedParcours;
                 const parcoursActuelElem = document.getElementById("parcours-actuel");
                 if (parcoursActuelElem) {
-                        parcoursActuelElem.innerHTML = `<span style="text-decoration: underline; font-weight:600;">Parcours en cours :</span><br><span style="font-size: 20px;">${parcoursNom}</span>`;
+                        parcoursActuelElem.innerHTML = `<h2 class="nav-link fs-2 text-white" style="text-decoration: underline; font-weight:600;">Parcours en cours :</h2>${parcoursNom}`;
                 }
 
-                // Initialiser la carte
                 if (navigator.geolocation) {
                         navigator.geolocation.getCurrentPosition(
                                 position => {
@@ -432,11 +439,9 @@ fetch('data.json')
                 } else {
                         initializeMap(parcours, parcours.points[0].coords);
                 }
-        })
-        .catch(error => {
-                console.error("Erreur lors du chargement des données :", error);
-                document.getElementById('status').textContent = "Erreur lors du chargement des données";
         });
+
+
 
 function openFullscreenVideo(src) {
         const video = document.getElementById('fullscreenVideo');

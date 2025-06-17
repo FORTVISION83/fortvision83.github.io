@@ -9,6 +9,18 @@ body {
         overflow-x: hidden;
 }
 
+html,
+body {
+        margin: 0;
+        padding: 0;
+        width: 100vw;
+        overflow-x: hidden;
+}
+
+* {
+        box-sizing: border-box;
+}
+
 .green {
         color: #273909;
 }
@@ -47,8 +59,8 @@ a {
 .navbar-toggler:focus,
 .navbar-toggler:active,
 .navbar-toggler:focus-visible,
-body > div.header > nav > div > button {
-        border: none !important ;
+body>div.header>nav>div>button {
+        border: none !important;
         box-shadow: none !important;
         outline: none !important;
 }
