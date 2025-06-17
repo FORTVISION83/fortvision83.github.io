@@ -270,7 +270,9 @@ function initializeMap(parcours, initialCoords) {
                                 alert("La géolocalisation est nécessaire pour profiter pleinement de l'expérience. Veuillez autoriser l'accès.");
                                 updatePlacesList(parcours.points, null);
                         },
-                        { enableHighAccuracy: true }
+                        { enableHighAccuracy: true,
+                                timeout:2000,
+                        }
                 );
         } else {
                 document.getElementById('status').textContent = '❌ Géolocalisation non supportée par votre navigateur';
