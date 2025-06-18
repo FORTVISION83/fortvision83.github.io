@@ -14,6 +14,7 @@
 </head>
 
 <body>
+
   <svg width="0" height="0" style="position: absolute;">
     <defs>
       <!-- Forme zigzag pour le header -->
@@ -58,8 +59,60 @@
       Choix du Parcours &nbsp; &rarr;
     </a>
   </div>
+  <div id="loader">
+    <div class="animation-container">
+      <svg id="oeil" width="31" height="30" viewBox="0 0 31 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="15.2307" cy="14.9084" r="14.9084" fill="#273909" />
+      </svg>
+      <svg id="fort" width="151" height="153" viewBox="0 0 151 153" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M74.7602 0.354645L59.7633 15.7058L5.08942 3.89723L15.0086 61.5232L0.0117188 75.8117L15.0086 91.399L5.32559 145.837L58.3462 137.216L73.8155 152.686L89.4029 137.216L143.132 148.08L133.331 93.0522L150.808 77.2287L133.331 61.5232L142.896 7.08555L89.4029 15.7058L74.7602 0.354645Z"
+          fill="#E7E7E7" />
+      </svg>
+    </div>
+  </div>
+  <script>
+    const oeilSvg = document.getElementById('oeil');
+    const fortSvg = document.getElementById('fort');
+    const originalOeilHeight = 30, targetOeilHeight = 3;
+    const oeilScaleYFactor = targetOeilHeight / originalOeilHeight;
+    let currentRotation = 0;
 
+    function animateElements() {
+      setTimeout(() => {
+        oeilSvg.style.transform = `translate(-50%, -50%) scaleY(${oeilScaleYFactor})`;
+      }, 200);
+
+      setTimeout(() => {
+        oeilSvg.style.transform = 'translate(-50%, -50%) scaleY(1)';
+      }, 300);
+
+      setTimeout(() => {
+        currentRotation += 180;
+        fortSvg.style.transform = `translate(-50%, -50%) rotate(${currentRotation}deg)`;
+      }, 1100);
+
+      setTimeout(() => {
+        currentRotation += 180;
+        fortSvg.style.transform = `translate(-50%, -50%) rotate(${currentRotation}deg)`;
+      }, 2000);
+
+      setTimeout(animateElements, 2010);
+    }
+    animateElements();
+
+    window.addEventListener('DOMContentLoaded', () => {
+      setTimeout(() => {
+        const loader = document.getElementById('loader');
+        loader.classList.add('fade-out');
+        // Retirer le loader du DOM après le fondu (optionnel)
+        setTimeout(() => loader.style.display = 'none', 600);
+      }, 2200);
+    });
+
+  </script>
 
 </body>
+
 
 </html>
