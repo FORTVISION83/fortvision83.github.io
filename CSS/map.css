@@ -55,7 +55,7 @@ html {
     position: absolute;
     bottom: 12vh;
     right: 10px;
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(255, 255, 255, 0.6);
     border-radius: 5px;
     padding: 10px;
     max-width: 200px;
@@ -146,7 +146,7 @@ html {
 }
 
 @keyframes nextPointPulse {
-    0%   { box-shadow: 0 0 0 0 #CFEDCC; }
+    0%   { box-shadow: 0 0 0 0 #00ddff; }
     70%  { box-shadow: 0 0 0 15px rgba(0, 255, 127, 0); }
     100% { box-shadow: 0 0 0 0 rgba(0, 255, 127, 0); }
 }

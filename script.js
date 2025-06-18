@@ -37,15 +37,6 @@ function createNumberedIcon(number, state) {
         });
 }
 
-// function createNumberedIcon(number, isVisited) {
-//         return L.divIcon({
-//                 className: 'custom-number-icon ' + (isVisited ? 'visited' : 'non-visited'),
-//                 html: `<div class="circle">${number}</div>`,
-//                 iconSize: [50, 50],
-//                 iconAnchor: [17, 35],
-//                 popupAnchor: [0, -30]
-//         });
-// }
 
 function getNextPoint(parcours) {
         for (let i = 0; i < parcours.points.length; i++) {
@@ -183,14 +174,6 @@ function initializeMap(parcours, initialCoords) {
                         updateSidebarLabel(point.titre);
                         currentOpenPoint = point.titre;
                         map.setView(point.coords, 18);
-
-                        // affichage des coordonnées du POI si en mode errante
-                        if (wanderMode) {
-                                const display = document.getElementById("wander-coords-display");
-                                display.style.display = "block";
-                                document.getElementById("coord-lat").textContent = point.coords[0].toFixed(6);
-                                document.getElementById("coord-lng").textContent = point.coords[1].toFixed(6);
-                        }
                 });
 
                 point.zone = turf.buffer(
@@ -202,7 +185,6 @@ function initializeMap(parcours, initialCoords) {
 
         });
         updateAllMarkers(); // Initialise les états des marqueurs
-
 
         // Tracer le parcours avec une ligne
         const polylinePoints = parcours.points.map(point => point.coords);
@@ -226,7 +208,7 @@ function initializeMap(parcours, initialCoords) {
                                 userMarker.setLatLng(userCoords);
 
                                 if (!map.getBounds().contains(userCoords)) {
-                                        document.getElementById('status').textContent = "⚠️ Vous êtes hors de la zone ou votre géolocation est imprécise. Vous passez en mode hors-ligne.";
+                                        document.getElementById('status').textContent = "⚠️ Vous êtes hors de la zone ou votre géolocation est imprécise. Veuillez passer en mode 'MODE LIBRE' pour visiter virtuellement.";
 
                                         const latlngs = parcours.points.map(p => p.coords);
                                         const bounds = L.latLngBounds(latlngs);
@@ -269,7 +251,7 @@ function initializeMap(parcours, initialCoords) {
                                         </video>
                                         </div>
                                         <p>${point.description}</p>
-                                        <p><strong>Distance:</strong> ${Math.round(distance)}m</p>
+                                        // <p><strong>Distance:</strong> ${Math.round(distance)}m</p>
                                         `;
 
                                                         showSidebar(content);
@@ -322,6 +304,13 @@ function initializeMap(parcours, initialCoords) {
                 alert("Votre navigateur ne supporte pas la géolocalisation.");
                 updatePlacesList(parcours.points, null);
         }
+        map.on('click', function (e) {
+                if (!wanderMode) return;
+                const { lat, lng } = e.latlng;
+                userMarker.setLatLng([lat, lng]);
+                map.panTo([lat, lng]);
+                processUserCoords([lat, lng]);
+        });
 }
 
 // Errante mode pour gérer position manuelle
@@ -390,14 +379,6 @@ function processUserCoords(coords) {
 
         updatePlacesList(parcours.points, coords);
 
-        if (wanderMode) {
-                document.getElementById("wander-coords-display").style.display = "block";
-                document.getElementById("coord-lat").textContent = coords[0].toFixed(6);
-                document.getElementById("coord-lng").textContent = coords[1].toFixed(6);
-        } else {
-                document.getElementById("wander-coords-display").style.display = "none";
-        }
-
 }
 
 document.getElementById("toggleWander").addEventListener("click", () => {
@@ -405,41 +386,24 @@ document.getElementById("toggleWander").addEventListener("click", () => {
 
         const btn = document.getElementById("toggleWander");
         const fields = document.getElementById("wander-fields");
-        const display = document.getElementById("wander-coords-display");
+        // const display = document.getElementById("wander-coords-display");
 
-        btn.innerText = wanderMode ? "MODE AUTO" : "MODE ERRANTE";
+        btn.innerText = wanderMode ? "DESACTIVER" : "MODE LIBRE";
         fields.style.display = wanderMode ? "block" : "none";
         document.getElementById("status").textContent = wanderMode
-                ? "🧭 Mode errante activé"
+                ? "🧭 Mode visite libre activé - Vous pouvez vous déplacer librement en cliquant sur la carte"
                 : "⌛ Géolocalisation automatique réactivée";
 
         if (wanderMode) {
-                refreshCoordsDisplay();
-                display.style.display = 'block';
+                // Visuel facultatif pour signaler l’activation (changement de curseur, CSS…)
+                map.getContainer().style.cursor = 'crosshair';
         } else {
-                display.style.display = 'none';
-                document.getElementById('coords-list').innerHTML = '';
+                map.getContainer().style.cursor = '';
                 window.location.reload();
         }
 
 });
 
-document.getElementById("applyWander").addEventListener("click", () => {
-        if (!wanderMode) {
-                alert("👉 Activez d'abord le Mode Errante.");
-                return;
-        }
-
-        const lat = parseFloat(document.getElementById("latInput").value);
-        const lng = parseFloat(document.getElementById("lngInput").value);
-
-        if (isNaN(lat) || isNaN(lng)) {
-                alert("⚠️ Coordonnées invalides.");
-                return;
-        }
-
-        processUserCoords([lat, lng]);
-});
 
 fetch('data.json')
         .then(response => response.json())

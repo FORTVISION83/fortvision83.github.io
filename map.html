@@ -15,26 +15,6 @@
 
 
 <body>
-
-    <!-- Coordonnées affichées en mode errante -->
-    <div id="wander-coords-display" style="
-    position: absolute;
-    bottom: 12vh;
-    background: rgba(255, 255, 255, 0.5);
-    padding: 8px 8px;
-    border-radius: 6px;
-    font-size: 8px;
-    box-shadow: 0 0 4px rgba(0,0,0,0.2);
-    z-index: 999;
-    display: none;
-    font-family: monospace;
-    color: #273909;
-    font-weight: bold;
-    ">
-        <p>Coordonnées des POIs</h5>
-        <ul id="coords-list" style="margin:0; padding-left:1em;"></ul>
-    </div>
-
     <svg width="0" height="0" style="position:absolute">
         <clipPath id="header-clip" clipPathUnits="objectBoundingBox">
             <path d="M1,0 H0 V1 L0.476,0.826 L0.599,0.925 L0.777,0.783 L1,1 V0" />
@@ -152,7 +132,6 @@
         </div>
     </div>
 
-    <!-- MODE ERRANTE -->
     <div id="wander-container" style="
             position: absolute;
             top: 15vh;
@@ -165,14 +144,9 @@
             width: 180px;
             width: fit-content;
         ">
-        <button id="toggleWander" class="btn btn-sm w-100">MODE ERRANTE</button>
+        <button id="toggleWander" class="btn btn-sm w-100">MODE LIBRE</button>
 
         <div id="wander-fields" style="display: none;">
-            <input type="number" id="latInput" placeholder="Latitude" step="0.000001"
-                class="form-control form-control-sm mb-1" />
-            <input type="number" id="lngInput" placeholder="Longitude" step="0.000001"
-                class="form-control form-control-sm mb-2" />
-            <button id="applyWander" class="btn btn-primary btn-sm w-100">Appliquer</button>
         </div>
     </div>
 
